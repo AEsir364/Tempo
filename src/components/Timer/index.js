@@ -38,14 +38,16 @@ const Timer = () => {
 
   const handleToggleTimer = () => {
     if (!isRunning) {
-      const h = parseInt(hours, 10) || 0;
-      const m = parseInt(minutes, 10) || 0;
-      const s = parseInt(seconds, 10) || 0;
-      const totalSeconds = h * 3600 + m * 60 + s;
+      if (time === 0) { // Apenas redefinir se o tempo já chegou a zero
+        const h = parseInt(hours, 10) || 0;
+        const m = parseInt(minutes, 10) || 0;
+        const s = parseInt(seconds, 10) || 0;
+        const totalSeconds = h * 3600 + m * 60 + s;
 
-      if (totalSeconds > 0) {
-        setInitialTime(totalSeconds);
-        setTime(totalSeconds);
+        if (totalSeconds > 0) {
+          setInitialTime(totalSeconds);
+          setTime(totalSeconds);
+        }
       }
     }
     setIsRunning((prevState) => !prevState);
