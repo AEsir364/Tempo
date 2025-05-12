@@ -70,7 +70,7 @@ button:hover {
 }
 
 button:active {
-  background-color: #00ffcc;
+  background-color: #9a1eff;
   transform: scale(0.95);
 }
 
@@ -110,7 +110,32 @@ button:active {
 }
 
 .switchButton:active {
-  background-color: #00ffcc;
+  background-color: #9a1eff;
   transform: scale(0.95);
 }
 
+.progress-container {
+  width: 200px;
+  height: 200px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.progress-circle {
+  position: absolute;
+}
+
+.progress-circle circle {
+  fill: transparent;
+  stroke: #666;
+  stroke-width: 10px;
+}
+
+.progress-circle #bar {
+  stroke: #9a1eff;
+  stroke-width: 10px;
+  stroke-dasharray: 565.48;
+  transition: stroke-dashoffset 1s linear;
+}
