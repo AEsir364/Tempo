@@ -5,11 +5,13 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100vh;
+  min-height: 100vh; /* em vez de height */
+  padding: 20px; /* dá um pouco de respiro */
   flex-direction: column;
   text-align: center;
-  color:aliceblue
+  color: aliceblue;
 }
+
 
 .timer {
   color: aliceblue;
@@ -140,47 +142,21 @@ button:active {
   transition: stroke-dashoffset 1s linear;
 }
 
-@media (max-width: 600px) { 
+@media (max-width: 480px) {
   .timer {
-    width: 100%;
-    max-width: 350px;
-    padding: 15px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .progress-container {
-    width: 80vw;
-    height: 80vw;
-    max-width: 250px;
-    max-height: 250px;
-  }
-
-  .progress-circle text {
-    font-size: 20px;
-  }
-
-  .inputs {
-    display: flex;
-    justify-content: center;
-    gap: 8px;
+    gap: 15px;
   }
 
   input {
     width: 45px;
-    height: 30px;
-    font-size: 18px;
+    font-size: 16px;
   }
 
-  .buttons {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    width: 100%;
+  .timer h2, .timer button {
+    font-size: 14px;
   }
 
-  button {
-    width: 100%;
+  .circle-timer {
+    transform: scale(0.8); /* ajusta o tamanho do círculo, se for SVG ou canvas */
   }
 }

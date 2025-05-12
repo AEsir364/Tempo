@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import styles from "./Timer.module.css";
 
 const Timer = () => {
@@ -7,6 +7,7 @@ const Timer = () => {
   const [minutes, setMinutes] = useState("");
   const [seconds, setSeconds] = useState("");
   const [isRunning, setIsRunning] = useState(false);
+  const audioRef = useRef(null); // Referência para o áudio
 
   useEffect(() => {
     let interval;
@@ -17,9 +18,11 @@ const Timer = () => {
     } else if (time === 0) {
       setIsRunning(false);
 
-      // Reproduz o áudio ao acabar
-      const audio = new Audio("/cabou.mp3");
-      audio.play();
+      // Toca o áudio de forma confiável ao acabar
+      if (audioRef.current) {
+        audioRef.current.volume = 0.1;
+        audioRef.current.play().catch(error => console.error("Erro ao reproduzir áudio:", error));
+      }
     }
 
     return () => clearInterval(interval);
@@ -73,6 +76,9 @@ const Timer = () => {
           </text>
         </svg>
       </div>
+
+      {/* Elemento de áudio para pré-carregar o som */}
+      <audio ref={audioRef} src="/cabou.mp3" preload="auto"></audio>
 
       <div className={styles.inputs}>
         <input type="text" value={hours} onChange={(e) => setHours(e.target.value.replace(/[^0-9]/g, ""))} placeholder="HH" maxLength="2" />
