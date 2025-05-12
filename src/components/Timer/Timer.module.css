@@ -1,0 +1,52 @@
+@media (max-width: 600px) { 
+  .timer {
+    width: 100%; /* Usa toda a largura da tela */
+    height: 100%; /* Usa toda a altura da tela */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+  }
+
+  .progress-container {
+    width: 90vw;
+    height: 90vw;
+    max-width: 350px;
+    max-height: 350px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .progress-circle text {
+    font-size: 50px; /* Deixa o tempo dentro do círculo muito maior */
+    font-weight: bold;
+  }
+
+  .inputs {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+  }
+
+  input {
+    width: 60px;
+    height: 45px;
+    font-size: 22px;
+  }
+
+  .buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 80%;
+    margin-top: 20px;
+  }
+
+  button {
+    width: 100%;
+    font-size: 22px;
+    padding: 12px;
+  }
+}
