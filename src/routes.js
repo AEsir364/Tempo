@@ -6,8 +6,8 @@ function AppRoutes() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Cronometro />} />
-        <Route path="/temporizador" element={<Temporizador />} />
+        <Route path="/" element={<Temporizador />} />
+        <Route path="/cronometro" element={<Cronometro />} />
       </Routes>
     </BrowserRouter>
   );

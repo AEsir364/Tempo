@@ -2,7 +2,8 @@ import { useState, useEffect, useRef } from "react";
 import styles from "./Timer.module.css";
 
 const Timer = () => {
-  const [time, setTime] = useState(1500); // 25 minutos em segundos
+  const [time, setTime] = useState(1500); // Tempo restante
+  const [initialTime, setInitialTime] = useState(1500); // Tempo inicial definido pelo usuário
   const [hours, setHours] = useState("");
   const [minutes, setMinutes] = useState("");
   const [seconds, setSeconds] = useState("");
@@ -42,42 +43,43 @@ const Timer = () => {
       const s = parseInt(seconds, 10) || 0;
       const totalSeconds = h * 3600 + m * 60 + s;
 
-      if (totalSeconds > 0) setTime(totalSeconds);
+      if (totalSeconds > 0) {
+        setInitialTime(totalSeconds);
+        setTime(totalSeconds);
+      }
     }
     setIsRunning((prevState) => !prevState);
   };
 
   const handleReset = () => {
-    setTime(1500);
+    setTime(initialTime);
     setHours("");
     setMinutes("");
     setSeconds("");
     setIsRunning(false);
   };
 
-  const progressPercentage = (time / 1500) * 100;
+  const progressPercentage = (time / initialTime) * 100;
   const circleDashoffset = (1 - progressPercentage / 100) * 565.48;
 
   return (
     <div className={styles.timer}>
       <h2>Temporizador</h2>
 
-      {/* Barra de progresso SVG com tempo dentro */}
       <div className={styles.progressContainer}>
         <svg className={styles.progressCircle} width="250" height="250" viewBox="0 0 200 200">
-          <circle r="90" cx="100" cy="100" stroke="#666" stroke-width="10" fill="transparent"></circle>
+          <circle r="90" cx="100" cy="100" stroke="#a9ac02" stroke-width="10" fill="transparent"></circle>
           <circle id="bar" r="90" cx="100" cy="100" stroke="#9a1eff" stroke-width="10" fill="transparent"
             stroke-dasharray="565.48"
             style={{ strokeDashoffset: circleDashoffset }}
           ></circle>
-          {/* Texto dentro do círculo */}
-          <text x="50%" y="50%" dominantBaseline="middle" textAnchor="middle" fontSize="20" fill="#FFF">
+          {/* Texto do tempo aumentado para melhor visibilidade */}
+          <text x="50%" y="50%" dominantBaseline="middle" textAnchor="middle" fontSize="30" fill="#FFF">
             {formatTime(time)}
           </text>
         </svg>
       </div>
 
-      {/* Elemento de áudio para pré-carregar o som */}
       <audio ref={audioRef} src="/cabou.mp3" preload="auto"></audio>
 
       <div className={styles.inputs}>

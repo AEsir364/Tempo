@@ -5,7 +5,7 @@ import Chronometer from "../../components/Chronometer";
 function Cronometro() {
   return (
     <section className={styles.container}>
-      <Link to="/temporizador">
+      <Link to="/">
         <button className={styles.switchButton}>Modo Temporizador</button>
       </Link>
       <Chronometer />
