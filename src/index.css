@@ -1,13 +1,116 @@
 body {
+  font-family: "JetBrains Mono", monospace;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  background-color: #171717;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  flex-direction: column;
+  text-align: center;
+  color:aliceblue
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.timer {
+  color: aliceblue;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
 }
+
+.inputs {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+input {
+  width: 60px;
+  height: 40px;
+  padding: 8px;
+  font-size: 20px;
+  text-align: center;
+  border-radius: 10px;
+  border: 2px solid #444;
+  font-family: "JetBrains Mono", monospace;
+  background-color: #222;
+  color: white;
+}
+
+span {
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+}
+
+button {
+  min-width: 130px;
+  height: 60px;
+  padding: 10px 20px;
+  margin: 10px;
+  border-radius: 15px;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 18px;
+  font-weight: bold;
+  background-color: #bbbbbb;
+  color: rgb(0, 0, 0);
+  border: 2px solid #444;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  box-shadow: 3px 3px 6px rgba(180, 180, 180, 0.3);
+  text-align: center;
+  white-space: nowrap;
+}
+
+button:hover {
+  background-color: #e0e0e0;
+  border-color: #555;
+  transform: scale(1.05);
+}
+
+button:active {
+  background-color: #00ffcc;
+  transform: scale(0.95);
+}
+
+.buttons {
+  display: flex;
+  gap: 15px;
+  margin-top: 10px;
+  justify-content: center;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.switchButton {
+  width: 250px;
+  height: 50px;
+  border-radius: 12px;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 18px;
+  font-weight: bold;
+  background-color: #333;
+  color: white;
+  border: 2px solid #555;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  margin-top: 20px;
+}
+
+.switchButton:hover {
+  background-color: #444;
+  border-color: #777;
+  transform: scale(1.05);
+}
+
+.switchButton:active {
+  background-color: #00ffcc;
+  transform: scale(0.95);
+}
+
