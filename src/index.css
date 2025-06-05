@@ -142,3 +142,36 @@ button:active {
   transition: stroke-dashoffset 1s linear;
 }
 
+@media screen and (max-width: 600px) {
+  body {
+    font-size: 22px; /* Ajusta tamanho da fonte geral */
+    padding: 15px;
+  }
+
+  .inputs {
+    gap: 10px;
+  }
+
+  input {
+    width: 80px;
+    height: 50px;
+    font-size: 22px;
+  }
+
+  button {
+    min-width: 140px;
+    height: 65px;
+    font-size: 20px;
+  }
+
+  .progress-container {
+    width: 220px;
+    height: 220px;
+  }
+
+  .switchButton {
+    width: 280px;
+    height: 55px;
+    font-size: 20px;
+  }
+}
